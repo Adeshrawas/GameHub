@@ -1,0 +1,89 @@
+import React from 'react';
+import BackToHub from '../../components/shared/BackToHub';
+import ReactionScreen from './components/ReactionScreen';
+import ResultDisplay from './components/ResultDisplay';
+import { useReaction } from './hooks/useReaction';
+import { Sparkles, Timer, RotateCcw, History, Trash2 } from 'lucide-react';
+
+export default function ReactionGame() {
+  const {
+    phase,
+    reactionTime,
+    bestTime,
+    history,
+    handleClickScreen,
+    startWaitingPhase,
+    resetStats
+  } = useReaction();
+
+  return (
+    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-300">
+      {/* Navigation Header */}
+      <BackToHub currentGameTitle="Reaction Speed" />
+
+      <main className="flex-1 max-w-4xl mx-auto w-full px-4 py-8 sm:py-10 flex flex-col items-center justify-center">
+        {/* Title Header */}
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wide mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Reflex Test</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+            Reaction Speed
+          </h1>
+
+          <p className="text-slate-400 text-xs sm:text-sm max-w-sm mx-auto">
+            Test your reflex reaction time in milliseconds!
+          </p>
+        </div>
+
+        {/* Score Header Display */}
+        <ResultDisplay reactionTime={reactionTime} bestTime={bestTime} />
+
+        {/* Interactive Click Area */}
+        <ReactionScreen
+          phase={phase}
+          reactionTime={reactionTime}
+          onClick={handleClickScreen}
+        />
+
+        {/* Attempt History Breakdown */}
+        {history.length > 0 && (
+          <div className="w-full max-w-md mt-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-lg animate-in fade-in duration-200">
+            <div className="flex items-center justify-between mb-3 text-xs text-slate-400 font-semibold border-b border-slate-800 pb-2">
+              <span className="flex items-center gap-1.5 text-indigo-400">
+                <History className="w-3.5 h-3.5" />
+                Recent Attempts
+              </span>
+              <button
+                onClick={resetStats}
+                className="text-[11px] text-slate-500 hover:text-rose-400 transition-colors flex items-center gap-1"
+                title="Reset best score and history"
+              >
+                <Trash2 className="w-3 h-3" />
+                <span>Reset Stats</span>
+              </button>
+            </div>
+
+            <div className="flex items-center justify-start gap-2 overflow-x-auto py-1">
+              {history.map((time, index) => (
+                <div
+                  key={index}
+                  className="flex-1 min-w-[70px] p-2 rounded-xl bg-slate-950/70 border border-slate-800 text-center"
+                >
+                  <span className="text-[10px] text-slate-500 block uppercase font-bold">
+                    #{index + 1}
+                  </span>
+                  <span className="text-sm font-extrabold text-slate-200">
+                    {time} ms
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
