@@ -95,5 +95,21 @@ export const gamesList = [
     storageKey: 'reaction_best',
     scoreFormat: (score) => score ? `${score} ms` : 'No score yet',
     iconName: 'Timer'
+  },
+  {
+    id: 'whackamole',
+    name: 'Whack-a-Mole',
+    path: '/games/whackamole',
+    description: 'Whack moles as fast as they pop up out of their holes! Test your reflexes in 30 seconds of high-speed action.',
+    category: 'Arcade',
+    badgeColor: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    accentColor: 'from-amber-500 to-orange-600',
+    glowClass: 'group-hover:shadow-glow-amber',
+    cardGlow: 'glow-amber',
+    iconGlow: 'icon-glow-amber',
+    neonTopBar: 'from-amber-400 to-orange-500',
+    storageKey: 'whackamole_best',
+    scoreFormat: (score) => score ? `Best: ${score} pts` : 'No score yet',
+    iconName: 'Target'
   }
 ];

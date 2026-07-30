@@ -7,6 +7,7 @@ import TicTacToeGame from './games/tictactoe';
 import Game2048 from './games/game2048';
 import SnakeGame from './games/snake';
 import ReactionGame from './games/reaction';
+import WhackAMoleGame from './games/whackamole';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/games/game2048" element={<Game2048 />} />
         <Route path="/games/snake" element={<SnakeGame />} />
         <Route path="/games/reaction" element={<ReactionGame />} />
+        <Route path="/games/whackamole" element={<WhackAMoleGame />} />
 
         {/* Catch-all fallback redirect to Hub */}
         <Route path="*" element={<Navigate to="/" replace />} />

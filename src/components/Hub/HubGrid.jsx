@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { gamesList } from '../../data/gamesList';
 import GameCard from './GameCard';
 import { Gamepad2, Search, Filter, Zap, ShieldCheck } from 'lucide-react';
@@ -51,6 +53,14 @@ export default function HubGrid() {
                 <span>Scores Saved Locally</span>
               </div>
             </div>
+          </div>
+          {/* Start button */}
+          <div className="flex justify-center mt-6">
+            <Link to="/games">
+              <button className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-lg shadow-lg transform transition hover:scale-105">
+                Start
+              </button>
+            </Link>
           </div>
         </div>
 
