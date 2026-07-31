@@ -14,7 +14,8 @@ export const gamesList = [
     neonTopBar: 'from-emerald-400 to-teal-500',
     storageKey: 'puzzle_highscore',
     scoreFormat: (score) => score ? `${score} moves` : 'No score yet',
-    iconName: 'Grid'
+    iconName: 'Grid',
+    isFeatured: true
   },
   {
     id: 'memory',
@@ -229,7 +230,8 @@ export const gamesList = [
         return 'No games played';
       }
     },
-    iconName: 'CircleDot'
+    iconName: 'CircleDot',
+    isFeatured: true
   },
   {
     id: 'wordscramble',
