@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "node ./node_modules/vite/bin/vite.js build",
     "preview": "vite preview",
-    "test": "vitest run --reporter=dot"
+    "test": "vitest run"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -24,6 +24,7 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/ui": "^4.1.10",
     "autoprefixer": "^10.4.20",
     "jsdom": "^30.0.1",
     "postcss": "^8.4.49",

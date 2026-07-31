@@ -77,6 +77,13 @@ export function useWhackAMole() {
     });
   }, [clearTimers]);
 
+  const activeHoleRef = useRef(null);
+
+  const updateActiveHole = useCallback((hole) => {
+    activeHoleRef.current = hole;
+    setActiveHole(hole);
+  }, []);
+
   // Main mole popup loop
   const scheduleNextMole = useCallback(() => {
     // Randomize pop-up frequency between 800ms and 1200ms
@@ -84,18 +91,18 @@ export function useWhackAMole() {
 
     popupTimeoutRef.current = setTimeout(() => {
       const nextHole = getRandomHole();
-      setActiveHole(nextHole);
+      updateActiveHole(nextHole);
 
       // Mole remains visible for ~700ms before retreating
       const visibleDuration = 700;
 
       hideTimeoutRef.current = setTimeout(() => {
-        setActiveHole(null);
+        updateActiveHole(null);
         // Schedule the subsequent mole pop-up
         scheduleNextMole();
       }, visibleDuration);
     }, interval);
-  }, [getRandomHole]);
+  }, [getRandomHole, updateActiveHole]);
 
   // Start / Restart game action
   const startGame = useCallback(() => {
@@ -103,7 +110,7 @@ export function useWhackAMole() {
 
     setScore(0);
     setTimeLeft(GAME_DURATION);
-    setActiveHole(null);
+    updateActiveHole(null);
     setWhackedHole(null);
     setCombo(0);
     setIsPlaying(true);
@@ -121,7 +128,7 @@ export function useWhackAMole() {
 
     // Schedule initial mole pop-up
     scheduleNextMole();
-  }, [clearTimers, scheduleNextMole]);
+  }, [clearTimers, scheduleNextMole, updateActiveHole]);
 
   // Check game over when timeLeft hits 0
   useEffect(() => {
@@ -143,13 +150,15 @@ export function useWhackAMole() {
       if (!isPlaying) return;
 
       // If clicked hole is the currently active mole hole
-      if (holeIndex === activeHole) {
-        // Prevent double-scoring: immediately clear active hole and cancel hide timeout
+      if (holeIndex !== null && holeIndex === activeHoleRef.current) {
+        // Prevent double-scoring: immediately clear active hole ref and cancel hide timeout
+        activeHoleRef.current = null;
+        setActiveHole(null);
+
         if (hideTimeoutRef.current) {
           clearTimeout(hideTimeoutRef.current);
           hideTimeoutRef.current = null;
         }
-        setActiveHole(null);
 
         // Increment score
         setScore((prev) => prev + 1);
@@ -166,7 +175,7 @@ export function useWhackAMole() {
         scheduleNextMole();
       }
     },
-    [isPlaying, activeHole, scheduleNextMole]
+    [isPlaying, scheduleNextMole]
   );
 
   return {

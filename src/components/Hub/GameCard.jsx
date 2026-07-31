@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, Trophy, Grid, Brain, Gamepad2, Sparkles, Zap, Timer } from 'lucide-react';
+import { Play, Trophy, Grid, Brain, Gamepad2, Sparkles, Zap, Timer, Target, Scissors, Keyboard, Bomb, Eye, Hash, CircleDot } from 'lucide-react';
 
-const ICON_MAP = { Grid, Brain, Gamepad2, Sparkles, Zap, Timer };
+const ICON_MAP = { Grid, Brain, Gamepad2, Sparkles, Zap, Timer, Target, Scissors, Keyboard, Bomb, Eye, Hash, CircleDot };
 
 export default function GameCard({ game }) {
   const [highScore, setHighScore] = useState(null);

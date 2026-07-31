@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { calculateReactionTime } from '../utils/reactionMath';
 
 const BEST_SCORE_KEY = 'reaction_best';
 const ALT_BEST_SCORE_KEY = 'reaction_highscore';
@@ -73,7 +74,7 @@ export function useReaction() {
       setPhase('tooSoon');
     } else if (phase === 'ready') {
       // Valid reaction! Calculate elapsed time
-      const elapsed = Date.now() - startTimeRef.current;
+      const elapsed = calculateReactionTime(startTimeRef.current, Date.now());
       setReactionTime(elapsed);
       setPhase('clicked');
 

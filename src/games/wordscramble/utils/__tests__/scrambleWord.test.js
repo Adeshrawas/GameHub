@@ -1,0 +1,1 @@
+import '../scrambleWord.test.js';
