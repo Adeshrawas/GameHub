@@ -26,7 +26,7 @@ export default function ConnectFour() {
   } = useConnectFour();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-sky-500/30 selection:text-sky-800">
       {/* Top Header Navigation */}
       <BackToHub currentGameTitle="Connect Four" />
 

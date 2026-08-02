@@ -34,7 +34,7 @@ export default function SnakeGame() {
   } = useSnake();
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-rose-500/30 selection:text-rose-300">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-sky-500/30 selection:text-sky-800">
       {/* Navigation Header */}
       <BackToHub currentGameTitle="Retro Snake" />
 

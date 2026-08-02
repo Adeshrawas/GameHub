@@ -29,7 +29,7 @@ export default function Game2048() {
   } = use2048();
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-300">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-sky-500/30 selection:text-sky-800">
       {/* Header Navigation */}
       <BackToHub currentGameTitle="2048" />
 

@@ -201,7 +201,7 @@ export default function Memory() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-sky-500/30 selection:text-sky-800">
       <BackToHub currentGameTitle="Memory Match" />
 
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-6 gap-5">

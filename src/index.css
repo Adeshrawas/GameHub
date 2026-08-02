@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100 font-sans min-h-screen overflow-x-hidden;
+    @apply bg-slate-50 text-slate-900 font-sans min-h-screen overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
@@ -13,40 +13,43 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #020617; }
-::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #334155; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #bae6fd; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
 
 /* Card */
 .game-card {
-  background: #0f172a;
-  border: 1px solid #1e293b;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(14, 165, 233, 0.05);
+  transition: all 0.2s ease;
 }
 .game-card:hover {
-  border-color: #334155;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.15);
 }
 
 /* Filter pills */
 .pill-active {
-  background: #1e293b;
-  color: #e2e8f0;
-  border: 1px solid #475569;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
 }
 .pill-inactive {
-  background: transparent;
+  background: #ffffff;
   color: #64748b;
-  border: 1px solid #1e293b;
-  transition: color 0.15s, border-color 0.15s;
+  border: 1px solid #e2e8f0;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
 }
 .pill-inactive:hover {
-  color: #cbd5e1;
-  border-color: #334155;
+  color: #0284c7;
+  background: #f0f9ff;
+  border-color: #bae6fd;
 }
 
 /* Search bar */
 .search-input:focus {
   outline: none;
-  border-color: #475569;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }

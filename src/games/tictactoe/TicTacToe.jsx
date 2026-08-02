@@ -24,7 +24,7 @@ export default function TicTacToe() {
   } = useTicTacToe();
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-300">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-sky-500/30 selection:text-sky-800">
       {/* Top Header */}
       <BackToHub currentGameTitle="Tic-Tac-Toe" />
 

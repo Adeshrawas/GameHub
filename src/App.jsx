@@ -22,12 +22,12 @@ const WordScrambleGame = lazy(() => import('./games/wordscramble'));
 
 function GameLoader() {
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-slate-300">
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center text-slate-800">
       <div className="relative flex items-center justify-center mb-4">
-        <div className="w-16 h-16 rounded-full border-4 border-indigo-500/20 border-t-indigo-500 animate-spin" />
-        <Gamepad2 className="w-6 h-6 text-indigo-400 absolute" />
+        <div className="w-16 h-16 rounded-full border-4 border-sky-200 border-t-sky-500 animate-spin" />
+        <Gamepad2 className="w-6 h-6 text-sky-600 absolute" />
       </div>
-      <p className="text-sm font-semibold tracking-wider uppercase text-slate-400 animate-pulse">Loading Game...</p>
+      <p className="text-sm font-bold tracking-wider uppercase text-sky-700 animate-pulse">Loading Game...</p>
     </div>
   );
 }
