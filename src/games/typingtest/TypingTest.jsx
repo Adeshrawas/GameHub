@@ -29,14 +29,14 @@ export default function TypingTest() {
         
         {/* Header Title */}
         <div className="text-center space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-1">
-            <Keyboard className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-semibold uppercase tracking-wider mb-1">
+            <Keyboard className="w-3.5 h-3.5 text-slate-900" />
             Speed & Accuracy Test
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
             Typing Speed Test
           </h1>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 font-medium">
             Type the sentence accurately as fast as you can. Timer starts on your first keystroke!
           </p>
         </div>
@@ -67,19 +67,19 @@ export default function TypingTest() {
             />
 
             {/* Reset / New Sentence Action */}
-            <div className="flex items-center justify-between text-xs text-slate-400 px-2">
+            <div className="flex items-center justify-between text-xs text-slate-600 px-2">
               <button
                 onClick={resetTest}
-                className="flex items-center gap-1.5 hover:text-indigo-400 transition-colors font-medium cursor-pointer"
+                className="flex items-center gap-1.5 text-slate-700 hover:text-slate-900 transition-colors font-bold cursor-pointer"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-3.5 h-3.5 text-slate-900" />
                 <span>New Sentence</span>
               </button>
 
               {bestWpm > 0 && (
                 <button
                   onClick={resetBestWpm}
-                  className="flex items-center gap-1.5 text-slate-500 hover:text-rose-400 transition-colors font-medium cursor-pointer"
+                  className="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors font-medium cursor-pointer"
                   title="Reset high score"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />

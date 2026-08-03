@@ -34,13 +34,13 @@ export default function GuessInput({
           onChange={(e) => onChange(e.target.value)}
           disabled={disabled || isWon}
           placeholder={`Enter a number between ${range.min} & ${range.max}...`}
-          className="w-full pl-12 pr-28 py-4 rounded-2xl bg-slate-900/90 border border-slate-700/80 text-slate-100 text-lg font-mono placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 disabled:opacity-50 transition-all shadow-inner"
+          className="w-full pl-12 pr-28 py-4 rounded-2xl bg-white border border-slate-300 text-slate-900 text-lg font-mono placeholder:text-slate-400 focus:outline-none focus:border-slate-900 focus:ring-2 focus:ring-slate-900/30 disabled:opacity-50 transition-all shadow-inner"
         />
 
         <button
           type="submit"
           disabled={disabled || isWon || !value}
-          className="absolute right-2.5 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer flex items-center gap-1.5"
+          className="absolute right-2.5 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-slate-900 hover:bg-black border border-slate-900 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer flex items-center gap-1.5 shadow-2xs"
         >
           <span>Guess</span>
           <Send className="w-3.5 h-3.5" />

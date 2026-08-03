@@ -77,7 +77,11 @@ export default function SnakeCanvas({ snake, food, gridCols = 20, gridRows = 20 
         const radius = 6;
 
         ctx.beginPath();
-        ctx.roundRect(x + padding, y + padding, headW, headH, radius);
+        if (ctx.roundRect) {
+          ctx.roundRect(x + padding, y + padding, headW, headH, radius);
+        } else {
+          ctx.rect(x + padding, y + padding, headW, headH);
+        }
         ctx.fill();
 
         // Draw Head Eyes
@@ -97,7 +101,11 @@ export default function SnakeCanvas({ snake, food, gridCols = 20, gridRows = 20 
         const radius = 4;
 
         ctx.beginPath();
-        ctx.roundRect(x + padding, y + padding, segW, segH, radius);
+        if (ctx.roundRect) {
+          ctx.roundRect(x + padding, y + padding, segW, segH, radius);
+        } else {
+          ctx.rect(x + padding, y + padding, segW, segH);
+        }
         ctx.fill();
       }
       ctx.restore();

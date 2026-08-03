@@ -27,14 +27,14 @@ export default function SimonSays() {
         
         {/* Title Header */}
         <div className="text-center space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-1">
-            <Brain className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-semibold uppercase tracking-wider mb-1">
+            <Brain className="w-3.5 h-3.5 text-slate-900" />
             Memory Sequence Challenge
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
             Simon Says
           </h1>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 font-medium">
             Memorize the flashing sequence and repeat it back in exact order!
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function SimonSays() {
         />
 
         {/* Color Pad Arena */}
-        <div className="w-full glass-panel p-6 sm:p-10 rounded-3xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl shadow-2xl flex items-center justify-center">
+        <div className="w-full p-6 sm:p-10 rounded-3xl border border-slate-200 bg-white shadow-sm flex items-center justify-center">
           <ColorPad
             activeColor={activeColor}
             onColorClick={handleColorClick}
@@ -59,7 +59,7 @@ export default function SimonSays() {
         </div>
 
         {/* Footer & Rules */}
-        <div className="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800/60 text-xs text-slate-400">
+        <div className="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200 text-xs text-slate-600">
           <div className="flex items-center gap-2">
             <HelpCircle className="w-4 h-4 text-slate-500" />
             <span>Rules: Watch the flashing sequence carefully, then click the colors in the exact same order.</span>
@@ -68,7 +68,7 @@ export default function SimonSays() {
           {bestScore > 0 && (
             <button
               onClick={resetBestScore}
-              className="flex items-center gap-1.5 text-slate-500 hover:text-rose-400 transition-colors font-medium cursor-pointer"
+              className="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors font-medium cursor-pointer"
               title="Reset best score record"
             >
               <RefreshCw className="w-3.5 h-3.5" />

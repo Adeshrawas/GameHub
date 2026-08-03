@@ -36,22 +36,22 @@ export default function TicTacToe() {
             {/* Game Header Bar */}
             <div className="w-full max-w-md flex items-center justify-between mb-6">
               <div className="flex items-center space-x-2">
-                <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300">
+                <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-900 shadow-2xs">
                   {mode === 'computer' ? (
                     <>
-                      <Bot className="w-3.5 h-3.5 text-amber-400" />
+                      <Bot className="w-3.5 h-3.5 text-slate-900" />
                       <span>vs Computer</span>
                     </>
                   ) : (
                     <>
-                      <Users className="w-3.5 h-3.5 text-cyan-400" />
+                      <Users className="w-3.5 h-3.5 text-slate-900" />
                       <span>2 Players (Local)</span>
                     </>
                   )}
                 </span>
                 <button
                   onClick={changeMode}
-                  className="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors"
+                  className="text-xs text-slate-600 hover:text-slate-900 underline underline-offset-4 transition-colors font-medium"
                 >
                   Change
                 </button>
@@ -59,7 +59,7 @@ export default function TicTacToe() {
 
               <button
                 onClick={resetGame}
-                className="group flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-amber-400 text-xs font-medium transition-all"
+                className="group flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-black border border-slate-900 text-white text-xs font-bold transition-all shadow-2xs cursor-pointer"
                 title="Restart current match"
               >
                 <RotateCcw className="w-3.5 h-3.5 transition-transform group-hover:-rotate-90 duration-200" />
@@ -68,47 +68,47 @@ export default function TicTacToe() {
             </div>
 
             {/* Score Stats Bar */}
-            <div className="w-full max-w-md grid grid-cols-3 gap-2 sm:gap-3 mb-6 p-2 rounded-2xl bg-slate-900/80 border border-slate-800/80 shadow-lg text-center">
-              <div className="p-2 sm:p-3 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                <p className="text-[10px] sm:text-xs font-bold text-amber-400 uppercase tracking-wider mb-0.5">
+            <div className="w-full max-w-md grid grid-cols-3 gap-2 sm:gap-3 mb-6 p-2 rounded-2xl bg-white border border-slate-200 shadow-2xs text-center">
+              <div className="p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <p className="text-[10px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">
                   {mode === 'computer' ? 'Player (X)' : 'Player X'}
                 </p>
-                <p className="text-xl sm:text-2xl font-extrabold text-white">{stats.wins}</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">{stats.wins}</p>
               </div>
 
-              <div className="p-2 sm:p-3 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">
+              <div className="p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <p className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider mb-0.5">
                   Draws
                 </p>
-                <p className="text-xl sm:text-2xl font-extrabold text-slate-200">{stats.draws}</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">{stats.draws}</p>
               </div>
 
-              <div className="p-2 sm:p-3 rounded-xl bg-slate-950/60 border border-slate-800/50">
-                <p className="text-[10px] sm:text-xs font-bold text-cyan-400 uppercase tracking-wider mb-0.5">
+              <div className="p-2 sm:p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <p className="text-[10px] sm:text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">
                   {mode === 'computer' ? 'Computer (O)' : 'Player O'}
                 </p>
-                <p className="text-xl sm:text-2xl font-extrabold text-white">{stats.losses}</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">{stats.losses}</p>
               </div>
             </div>
 
             {/* Current Turn Badge */}
             {!winner && !isDraw && (
-              <div className="mb-6 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 shadow-md">
+              <div className="mb-6 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-2xs">
                 {isComputerThinking ? (
-                  <span className="flex items-center space-x-2 text-xs font-semibold text-cyan-400 animate-pulse">
+                  <span className="flex items-center space-x-2 text-xs font-semibold text-slate-900 animate-pulse">
                     <Bot className="w-4 h-4 animate-spin" />
                     <span>Computer is thinking...</span>
                   </span>
                 ) : (
                   <>
-                    <span className="text-xs font-semibold text-slate-400">Current Turn:</span>
-                    <span className="flex items-center space-x-1.5 font-bold text-sm">
+                    <span className="text-xs font-semibold text-slate-600">Current Turn:</span>
+                    <span className="flex items-center space-x-1.5 font-bold text-sm text-slate-900">
                       {currentPlayer === 'X' ? (
-                        <span className="text-amber-400 flex items-center">
+                        <span className="text-slate-900 flex items-center font-black">
                           <X className="w-4 h-4 mr-1 stroke-[3]" /> Player X
                         </span>
                       ) : (
-                        <span className="text-cyan-400 flex items-center">
+                        <span className="text-slate-900 flex items-center font-black">
                           <Circle className="w-4 h-4 mr-1 stroke-[3]" /> {mode === 'computer' ? 'Computer' : 'Player O'}
                         </span>
                       )}
@@ -139,7 +139,7 @@ export default function TicTacToe() {
             <div className="mt-8 text-center">
               <button
                 onClick={resetStats}
-                className="inline-flex items-center space-x-1 text-[11px] text-slate-500 hover:text-rose-400 transition-colors"
+                className="inline-flex items-center space-x-1 text-[11px] text-slate-600 hover:text-slate-900 transition-colors font-medium cursor-pointer"
                 title="Reset saved stats in LocalStorage"
               >
                 <Trash2 className="w-3 h-3" />

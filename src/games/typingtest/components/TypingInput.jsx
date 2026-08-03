@@ -30,17 +30,17 @@ export default function TypingInput({ value, onChange, disabled, isComplete }) {
           autoCapitalize="off"
           spellCheck="false"
           className={`
-            w-full pl-12 pr-4 py-4 rounded-2xl bg-slate-900/90 border border-slate-700/80
-            text-slate-100 text-lg sm:text-xl font-mono placeholder:text-slate-500
-            focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30
-            disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 shadow-inner
-            ${isComplete ? 'border-emerald-500/50 ring-2 ring-emerald-500/20' : ''}
+            w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-slate-300
+            text-slate-900 text-lg sm:text-xl font-mono placeholder:text-slate-400
+            focus:outline-none focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10
+            disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 shadow-2xs
+            ${isComplete ? 'border-slate-900 ring-2 ring-slate-900/10' : ''}
           `}
         />
       </div>
       
       {!value && !disabled && !isComplete && (
-        <p className="text-xs text-slate-400 mt-2 text-center">
+        <p className="text-xs text-slate-600 font-medium mt-2 text-center">
           💡 Timer starts automatically on your first keystroke!
         </p>
       )}

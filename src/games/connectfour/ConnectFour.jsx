@@ -35,14 +35,14 @@ export default function ConnectFour() {
         
         {/* Title Header */}
         <div className="text-center space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-1">
-            <Gamepad2 className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-semibold uppercase tracking-wider mb-1">
+            <Gamepad2 className="w-3.5 h-3.5 text-slate-900" />
             Strategic Token Drop
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
             Connect Four
           </h1>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 font-medium">
             Take turns dropping tokens. First to align 4 in a row horizontally, vertically, or diagonally wins!
           </p>
         </div>
@@ -54,22 +54,22 @@ export default function ConnectFour() {
             {/* Mode Header Controls */}
             <div className="w-full max-w-xl flex items-center justify-between px-2 text-xs">
               <div className="flex items-center space-x-2">
-                <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-semibold">
+                <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-900 font-bold shadow-2xs">
                   {mode === 'computer' ? (
                     <>
-                      <Bot className="w-3.5 h-3.5 text-indigo-400" />
+                      <Bot className="w-3.5 h-3.5 text-slate-900" />
                       <span>vs Computer</span>
                     </>
                   ) : (
                     <>
-                      <Users className="w-3.5 h-3.5 text-rose-400" />
+                      <Users className="w-3.5 h-3.5 text-slate-900" />
                       <span>2 Players (Local)</span>
                     </>
                   )}
                 </span>
                 <button
                   onClick={changeMode}
-                  className="text-slate-400 hover:text-indigo-400 underline underline-offset-4 transition-colors cursor-pointer font-medium"
+                  className="text-slate-600 hover:text-slate-900 underline underline-offset-4 transition-colors cursor-pointer font-bold"
                 >
                   Change Mode
                 </button>
@@ -77,7 +77,7 @@ export default function ConnectFour() {
 
               <button
                 onClick={resetGame}
-                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-indigo-400 font-medium transition-all cursor-pointer"
+                className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-black border border-slate-900 text-white font-bold transition-all cursor-pointer shadow-2xs"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Restart</span>
@@ -95,8 +95,8 @@ export default function ConnectFour() {
 
             {/* AI Thinking Indicator */}
             {isComputerThinking && (
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold animate-pulse">
-                <Bot className="w-4 h-4 animate-spin" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-bold animate-pulse">
+                <Bot className="w-4 h-4 animate-spin text-slate-900" />
                 <span>Computer is calculating optimal move...</span>
               </div>
             )}
@@ -117,7 +117,7 @@ export default function ConnectFour() {
         )}
 
         {/* Footer Rules & Reset Stats */}
-        <div className="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800/60 text-xs text-slate-400">
+        <div className="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200 text-xs text-slate-600">
           <div className="flex items-center gap-2">
             <HelpCircle className="w-4 h-4 text-slate-500" />
             <span>Rules: Click a column to drop a token. Tokens automatically fall to the lowest open row.</span>
@@ -126,7 +126,7 @@ export default function ConnectFour() {
           {(stats.player1Wins > 0 || stats.player2Wins > 0 || stats.draws > 0) && (
             <button
               onClick={resetStats}
-              className="flex items-center gap-1.5 text-slate-500 hover:text-rose-400 transition-colors font-medium cursor-pointer"
+              className="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors font-bold cursor-pointer"
               title="Reset scorecard stats"
             >
               <RefreshCw className="w-3.5 h-3.5" />

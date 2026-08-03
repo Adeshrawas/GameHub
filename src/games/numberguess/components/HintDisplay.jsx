@@ -4,17 +4,17 @@ import { ArrowUpRight, ArrowDownRight, CheckCircle2, History, Sparkles, Trophy }
 const HINT_CONFIG = {
   high: {
     label: 'Too High',
-    badge: 'bg-rose-500/10 text-rose-400 border-rose-500/30',
+    badge: 'bg-slate-100 text-slate-900 border-slate-300 font-bold',
     icon: ArrowUpRight,
   },
   low: {
     label: 'Too Low',
-    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
+    badge: 'bg-slate-100 text-slate-900 border-slate-300 font-bold',
     icon: ArrowDownRight,
   },
   correct: {
     label: 'Correct!',
-    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+    badge: 'bg-slate-900 text-white border-slate-900 font-bold',
     icon: CheckCircle2,
   },
 };
@@ -22,35 +22,35 @@ const HINT_CONFIG = {
 export default function HintDisplay({ guesses, isWon, totalGuesses, bestScore, onNewGame }) {
   if (isWon) {
     return (
-      <div className="w-full max-w-md mx-auto glass-panel p-6 sm:p-8 rounded-3xl border border-emerald-500/40 bg-gradient-to-b from-emerald-950/40 to-slate-900/80 backdrop-blur-xl shadow-2xl flex flex-col items-center text-center space-y-6 animate-fade-in">
+      <div className="w-full max-w-md mx-auto p-6 sm:p-8 rounded-3xl border border-slate-200 bg-white shadow-md flex flex-col items-center text-center space-y-6 animate-fade-in">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-semibold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-slate-900" />
             Victory!
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-100 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Correct Guess!
           </h2>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-slate-600 font-medium">
             You found the secret number in <strong>{totalGuesses}</strong> {totalGuesses === 1 ? 'attempt' : 'attempts'}!
           </p>
         </div>
 
         <div className="w-full grid grid-cols-2 gap-4">
-          <div className="p-4 rounded-2xl bg-slate-800/80 border border-emerald-500/30 flex flex-col items-center justify-center">
-            <span className="text-3xl font-black text-emerald-400">{totalGuesses}</span>
-            <span className="text-xs uppercase font-bold tracking-wider text-slate-400 mt-1">Guesses Used</span>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center shadow-2xs">
+            <span className="text-3xl font-black text-slate-900">{totalGuesses}</span>
+            <span className="text-xs uppercase font-bold tracking-wider text-slate-500 mt-1">Guesses Used</span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-800/80 border border-purple-500/30 flex flex-col items-center justify-center">
-            <span className="text-3xl font-black text-purple-400">{bestScore !== null ? bestScore : totalGuesses}</span>
-            <span className="text-xs uppercase font-bold tracking-wider text-slate-400 mt-1">Fewest Guesses</span>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center shadow-2xs">
+            <span className="text-3xl font-black text-slate-900">{bestScore !== null ? bestScore : totalGuesses}</span>
+            <span className="text-xs uppercase font-bold tracking-wider text-slate-500 mt-1">Fewest Guesses</span>
           </div>
         </div>
 
         <button
           onClick={onNewGame}
-          className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer text-base"
+          className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white bg-slate-900 hover:bg-black border border-slate-900 shadow-md transition-all duration-200 cursor-pointer text-base"
         >
           <span>Play Again</span>
         </button>
@@ -60,7 +60,7 @@ export default function HintDisplay({ guesses, isWon, totalGuesses, bestScore, o
 
   if (guesses.length === 0) {
     return (
-      <div className="w-full max-w-md mx-auto p-6 rounded-2xl border border-dashed border-slate-800 text-center text-slate-500 text-xs">
+      <div className="w-full max-w-md mx-auto p-6 rounded-2xl border border-dashed border-slate-300 text-center text-slate-500 text-xs font-medium">
         Make your first guess to receive hints!
       </div>
     );
@@ -75,22 +75,22 @@ export default function HintDisplay({ guesses, isWon, totalGuesses, bestScore, o
       {/* Latest Hint Banner */}
       <div className={`p-4 rounded-2xl border flex items-center justify-between ${latestMeta.badge} animate-fade-in`}>
         <div className="flex items-center space-x-3">
-          <LatestIcon className="w-6 h-6" />
+          <LatestIcon className="w-6 h-6 text-slate-900" />
           <div>
-            <span className="text-xs uppercase font-extrabold tracking-wider block">Latest Guess: {latestGuess.guess}</span>
-            <span className="text-lg font-black">{latestMeta.label}</span>
+            <span className="text-xs uppercase font-extrabold tracking-wider block text-slate-700">Latest Guess: {latestGuess.guess}</span>
+            <span className="text-lg font-black text-slate-900">{latestMeta.label}</span>
           </div>
         </div>
-        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-slate-900/60 border border-slate-800">
+        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-white border border-slate-300 text-slate-900">
           Attempt #{guesses.length}
         </span>
       </div>
 
       {/* Full History Scroll List */}
       <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
-        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400 px-1">
+        <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-600 px-1">
           <span className="flex items-center gap-1">
-            <History className="w-3.5 h-3.5 text-slate-400" />
+            <History className="w-3.5 h-3.5 text-slate-900" />
             Guess History ({guesses.length})
           </span>
         </div>
@@ -103,11 +103,11 @@ export default function HintDisplay({ guesses, isWon, totalGuesses, bestScore, o
           return (
             <div
               key={item.id}
-              className="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-sm font-mono"
+              className="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 text-sm font-mono shadow-2xs"
             >
               <div className="flex items-center space-x-3">
-                <span className="text-xs text-slate-400 font-sans">#{attemptNum}</span>
-                <span className="text-base font-bold text-slate-100">{item.guess}</span>
+                <span className="text-xs text-slate-500 font-sans font-medium">#{attemptNum}</span>
+                <span className="text-base font-bold text-slate-900">{item.guess}</span>
               </div>
 
               <div className={`flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full border text-xs font-sans font-bold ${meta.badge}`}>

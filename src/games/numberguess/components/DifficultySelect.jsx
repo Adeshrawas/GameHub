@@ -14,8 +14,9 @@ export default function DifficultySelect({ difficulty, onSelectDifficulty, disab
             disabled={disabled}
             className={`
               px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all duration-200 cursor-pointer
-              ${diff.color}
-              ${isSelected ? 'ring-2 ring-indigo-400 scale-105 shadow-md bg-opacity-30' : 'opacity-70 hover:opacity-100'}
+              ${isSelected
+                ? 'bg-slate-900 text-white border-slate-900 shadow-2xs'
+                : 'bg-white hover:bg-slate-100 text-slate-900 border-slate-200 shadow-2xs'}
               ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
             `}
           >

@@ -35,8 +35,8 @@ export default function Tile({ value, row, col, cellSize, pad, movable, onClick 
       className={[
         'flex items-center justify-center rounded-lg font-bold select-none',
         movable
-          ? 'bg-slate-600 hover:bg-slate-500 text-white border border-slate-500 shadow-md hover:shadow-lg active:scale-95'
-          : 'bg-slate-700 text-slate-200 border border-slate-600',
+          ? 'bg-slate-900 hover:bg-black text-white border border-slate-900 shadow-2xs hover:shadow-md active:scale-95'
+          : 'bg-white text-slate-900 border border-slate-200 shadow-2xs',
       ].join(' ')}
     >
       {value}

@@ -30,11 +30,11 @@ export default function ReactionScreen({ phase, reactionTime, onClick }) {
       {/* Phase 1: IDLE */}
       {phase === 'idle' && (
         <div className="flex flex-col items-center animate-in fade-in zoom-in-95 duration-200">
-          <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-4 shadow-lg">
-            <Zap className="w-8 h-8" />
+          <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-900 text-white flex items-center justify-center mb-4 shadow-md">
+            <Zap className="w-8 h-8 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">Click to Start</h2>
-          <p className="text-slate-400 text-xs max-w-xs">
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">Click to Start</h2>
+          <p className="text-slate-600 text-xs max-w-xs font-medium">
             When the screen turns green, click as fast as you can!
           </p>
         </div>
@@ -43,13 +43,13 @@ export default function ReactionScreen({ phase, reactionTime, onClick }) {
       {/* Phase 2: WAITING (Red Screen) */}
       {phase === 'waiting' && (
         <div className="flex flex-col items-center animate-in fade-in duration-200">
-          <div className="w-16 h-16 rounded-2xl bg-rose-500/20 border border-rose-500/30 text-rose-400 flex items-center justify-center mb-4 animate-bounce">
-            <Clock className="w-8 h-8" />
+          <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-900 text-white flex items-center justify-center mb-4 animate-bounce">
+            <Clock className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-3xl font-extrabold text-white mb-2 tracking-tight">
             Wait for Green...
           </h2>
-          <p className="text-rose-300/80 text-xs">
+          <p className="text-white/80 text-xs font-medium">
             Don't click yet! Hold your focus.
           </p>
         </div>
@@ -73,16 +73,16 @@ export default function ReactionScreen({ phase, reactionTime, onClick }) {
       {/* Phase 4: TOO SOON (False Start) */}
       {phase === 'tooSoon' && (
         <div className="flex flex-col items-center animate-in fade-in duration-200">
-          <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-4">
-            <AlertTriangle className="w-8 h-8" />
+          <div className="w-16 h-16 rounded-2xl bg-slate-900 border border-slate-900 text-white flex items-center justify-center mb-4">
+            <AlertTriangle className="w-8 h-8 text-white" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-amber-300 mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
             Too Soon!
           </h2>
-          <p className="text-amber-200/80 text-xs mb-4">
+          <p className="text-slate-600 text-xs mb-4 font-medium">
             You clicked before the screen turned green.
           </p>
-          <span className="inline-flex items-center text-xs text-amber-400 font-semibold underline underline-offset-4">
+          <span className="inline-flex items-center text-xs text-slate-900 font-bold underline underline-offset-4">
             Click to try again
           </span>
         </div>
@@ -91,15 +91,15 @@ export default function ReactionScreen({ phase, reactionTime, onClick }) {
       {/* Phase 5: CLICKED (Result Screen) */}
       {phase === 'clicked' && (
         <div className="flex flex-col items-center animate-in zoom-in-95 duration-200">
-          <div className="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center mb-3">
-            <Award className="w-7 h-7" />
+          <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-900 text-white flex items-center justify-center mb-3">
+            <Award className="w-7 h-7 text-white" />
           </div>
 
-          <div className="text-4xl sm:text-5xl font-black text-white mb-2 tracking-tight">
-            {reactionTime} <span className="text-2xl text-indigo-400 font-bold">ms</span>
+          <div className="text-4xl sm:text-5xl font-black text-slate-900 mb-2 tracking-tight">
+            {reactionTime} <span className="text-2xl text-slate-900 font-bold">ms</span>
           </div>
 
-          <div className={`px-3 py-1 rounded-full text-xs font-semibold border mb-4 ${rating.color}`}>
+          <div className="px-3 py-1 rounded-full text-xs font-bold border mb-4 bg-slate-100 border-slate-200 text-slate-900">
             {rating.label}
           </div>
 
@@ -108,7 +108,7 @@ export default function ReactionScreen({ phase, reactionTime, onClick }) {
               e.stopPropagation();
               onClick();
             }}
-            className="inline-flex items-center space-x-2 px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition-all active:scale-95"
+            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs border border-slate-900 shadow-md transition-all cursor-pointer"
           >
             <RefreshCw className="w-3.5 h-3.5" />
             <span>Try Again</span>

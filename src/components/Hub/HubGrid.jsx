@@ -33,26 +33,25 @@ export default function HubGrid() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-slate-900 selection:text-white">
       
       {/* ── Animated Opening Logo Splash ── */}
       {showSplash && <LogoSplash onFinish={() => setShowSplash(false)} />}
 
       {/* ── Top Header Navigation Bar with Logo Branding ── */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-sky-100 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           
           {/* Logo Emblem Branding */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-sky-400 to-blue-500 blur-sm opacity-60 group-hover:opacity-100 transition duration-200" />
-              <div className="relative w-10 h-10 rounded-xl bg-white border border-sky-200 flex items-center justify-center text-sky-600 group-hover:scale-105 transition-transform shadow-xs">
-                <Gamepad2 className="w-5 h-5 text-sky-500" />
+              <div className="relative w-10 h-10 rounded-xl bg-slate-900 border border-slate-900 flex items-center justify-center text-white group-hover:scale-105 transition-transform shadow-2xs">
+                <Gamepad2 className="w-5 h-5 text-white" />
               </div>
             </div>
 
             <div className="flex flex-col">
-              <span className="text-xl font-black tracking-wider uppercase text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600">
+              <span className="text-xl font-black tracking-wider uppercase text-slate-900">
                 GameHub
               </span>
               <span className="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase -mt-1">
@@ -62,8 +61,8 @@ export default function HubGrid() {
           </Link>
 
           {/* Top Badge */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-100 text-xs text-sky-700 font-bold">
-            <Sparkles className="w-3.5 h-3.5 text-sky-500" />
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs text-slate-900 font-bold">
+            <Sparkles className="w-3.5 h-3.5 text-slate-900" />
             <span>15 Instant Mini-Games</span>
           </div>
 
@@ -73,17 +72,17 @@ export default function HubGrid() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
 
         {/* ── Hero Banner ── */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-50 via-white to-blue-50 border border-sky-200/80 p-8 sm:p-12 mb-10 shadow-lg shadow-sky-500/5">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-100 via-white to-slate-50 border border-slate-200/90 p-8 sm:p-12 mb-10 shadow-sm">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-slate-200/40 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white border border-sky-200 text-sky-800 text-xs font-extrabold mb-5 shadow-2xs">
-              <Zap className="w-3.5 h-3.5 text-sky-500 fill-sky-500" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-extrabold mb-5 shadow-2xs">
+              <Zap className="w-3.5 h-3.5 text-white fill-white" />
               <span>Instant Web Mini-Game Arcade</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
-              Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600">GameHub</span>
+              Welcome to <span className="text-slate-900 underline underline-offset-4 decoration-2">GameHub</span>
             </h1>
 
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 font-medium">
@@ -91,18 +90,18 @@ export default function HubGrid() {
               No sign-ups required. All high scores save automatically in LocalStorage!
             </p>
 
-            <div className="flex flex-wrap gap-6 text-sm text-slate-600 pt-4 border-t border-sky-100">
+            <div className="flex flex-wrap gap-6 text-sm text-slate-600 pt-4 border-t border-slate-200">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-sky-500" />
-                <span className="font-bold text-slate-800">15 Mini-Games</span>
+                <Zap className="w-4 h-4 text-slate-900" />
+                <span className="font-bold text-slate-900">15 Mini-Games</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-sky-600" />
-                <span className="font-semibold text-slate-700">No Login Required</span>
+                <ShieldCheck className="w-4 h-4 text-slate-900" />
+                <span className="font-semibold text-slate-800">No Login Required</span>
               </div>
               <div className="flex items-center gap-2">
-                <Trophy className="w-4 h-4 text-sky-500" />
-                <span className="font-semibold text-slate-700">Auto-Saved Scores</span>
+                <Trophy className="w-4 h-4 text-slate-900" />
+                <span className="font-semibold text-slate-800">Auto-Saved Scores</span>
               </div>
             </div>
           </div>
@@ -118,8 +117,8 @@ export default function HubGrid() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-sky-500 text-white shadow-md shadow-sky-500/20'
-                    : 'bg-white hover:bg-sky-50 text-slate-600 border border-slate-200 hover:border-sky-200'
+                    ? 'bg-slate-900 text-white border border-slate-900 shadow-sm'
+                    : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 hover:border-slate-400 font-bold'
                 }`}
               >
                 {cat}
@@ -134,7 +133,7 @@ export default function HubGrid() {
               placeholder="Search games..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-800 text-xs placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 transition-all shadow-2xs"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10 transition-all shadow-2xs"
             />
           </div>
         </div>
@@ -149,7 +148,7 @@ export default function HubGrid() {
         ) : (
           <div className="text-center py-16 rounded-2xl bg-white border border-slate-200 shadow-2xs">
             <Gamepad2 className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-            <h3 className="text-base font-bold text-slate-800 mb-1">No games found</h3>
+            <h3 className="text-base font-bold text-slate-900 mb-1">No games found</h3>
             <p className="text-slate-500 text-sm">Try clearing your search query or choosing another category.</p>
           </div>
         )}
@@ -157,11 +156,11 @@ export default function HubGrid() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-sky-100 bg-white py-6 text-xs text-slate-500">
+      <footer className="border-t border-slate-200 bg-white py-6 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <Gamepad2 className="w-4 h-4 text-sky-500" />
-            <span className="text-slate-700 font-bold tracking-wider uppercase">GameHub Arcade Portal</span>
+            <Gamepad2 className="w-4 h-4 text-slate-900" />
+            <span className="text-slate-900 font-bold tracking-wider uppercase">GameHub Arcade Portal</span>
           </div>
           <span>Scores &amp; progress saved locally in browser LocalStorage</span>
         </div>

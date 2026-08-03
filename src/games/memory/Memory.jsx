@@ -17,30 +17,30 @@ function fmtTime(s) { return `${pad(Math.floor(s / 60))}:${pad(s % 60)}`; }
 /* ── Win Modal ─────────────────────────────────────────── */
 function WinModal({ level, moves, time, isNewBest, isLastLevel, onNext, onReplay }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+      <div className="bg-white border border-slate-200 rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center">
         <div className="text-4xl mb-3">🎉</div>
-        <h2 className="text-2xl font-extrabold text-white mb-1">All Pairs Found!</h2>
-        <p className="text-slate-400 text-sm mb-6">
+        <h2 className="text-2xl font-extrabold text-slate-900 mb-1">All Pairs Found!</h2>
+        <p className="text-slate-600 text-sm mb-6 font-medium">
           Level {level.id} — {level.rows}×{level.cols} · {level.pairCount} pairs
         </p>
 
         <div className="grid grid-cols-2 gap-3 mb-5">
-          <div className="bg-slate-800 rounded-xl p-3 flex flex-col items-center">
-            <Move className="w-4 h-4 text-slate-400 mb-1" />
-            <span className="text-xl font-bold text-white tabular-nums">{moves}</span>
-            <span className="text-xs text-slate-500">tries</span>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center">
+            <Move className="w-4 h-4 text-slate-900 mb-1" />
+            <span className="text-xl font-bold text-slate-900 tabular-nums">{moves}</span>
+            <span className="text-xs text-slate-500 font-medium">tries</span>
           </div>
-          <div className="bg-slate-800 rounded-xl p-3 flex flex-col items-center">
-            <Clock className="w-4 h-4 text-slate-400 mb-1" />
-            <span className="text-xl font-bold text-white font-mono tabular-nums">{fmtTime(time)}</span>
-            <span className="text-xs text-slate-500">time</span>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col items-center">
+            <Clock className="w-4 h-4 text-slate-900 mb-1" />
+            <span className="text-xl font-bold text-slate-900 font-mono tabular-nums">{fmtTime(time)}</span>
+            <span className="text-xs text-slate-500 font-medium">time</span>
           </div>
         </div>
 
         {isNewBest && (
-          <div className="flex items-center justify-center gap-2 mb-5 text-amber-400 text-sm font-medium">
-            <Trophy className="w-4 h-4" />
+          <div className="flex items-center justify-center gap-2 mb-5 text-slate-900 text-sm font-bold">
+            <Trophy className="w-4 h-4 text-slate-900" />
             <span>New personal best!</span>
           </div>
         )}
@@ -49,26 +49,26 @@ function WinModal({ level, moves, time, isNewBest, isLastLevel, onNext, onReplay
           <button
             onClick={onReplay}
             className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl
-                       bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium
-                       border border-slate-700 transition-colors"
+                       bg-white hover:bg-slate-100 text-slate-900 text-sm font-bold
+                       border border-slate-300 transition-colors cursor-pointer"
           >
-            <RotateCcw className="w-4 h-4" />
+            <RotateCcw className="w-4 h-4 text-slate-900" />
             Replay
           </button>
 
           {isLastLevel ? (
             <div className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl
-                            bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-semibold">
-              <Trophy className="w-4 h-4" /> All 30 Done!
+                            bg-slate-100 border border-slate-200 text-slate-900 text-sm font-bold">
+              <Trophy className="w-4 h-4 text-slate-900" /> All Done!
             </div>
           ) : (
             <button
               onClick={onNext}
               className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl
-                         bg-white hover:bg-slate-100 text-slate-900 text-sm font-semibold
-                         transition-colors"
+                         bg-slate-900 hover:bg-black text-white text-sm font-bold border border-slate-900
+                         transition-colors cursor-pointer"
             >
-              Next Level <ChevronRight className="w-4 h-4" />
+              Next Level <ChevronRight className="w-4 h-4 text-white" />
             </button>
           )}
         </div>
@@ -134,16 +134,16 @@ export default function Memory() {
           <button
             onClick={quit}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl
-                       bg-slate-800 hover:bg-slate-700 border border-slate-700
-                       text-slate-400 text-sm font-medium transition-colors"
+                       bg-white hover:bg-slate-100 border border-slate-300
+                       text-slate-900 text-sm font-bold transition-colors cursor-pointer"
           >
-            <LogOut className="w-4 h-4" /> Quit
+            <LogOut className="w-4 h-4 text-slate-900" /> Quit
           </button>
           <button
             onClick={start}
             className="flex items-center gap-2 px-6 py-2.5 rounded-xl
-                       bg-white hover:bg-slate-100 text-slate-900 text-sm font-semibold
-                       transition-colors shadow"
+                       bg-slate-900 hover:bg-black text-white text-sm font-bold border border-slate-900
+                       transition-colors shadow-2xs cursor-pointer"
           >
             <Play className="w-4 h-4 fill-current" /> Start
           </button>
@@ -157,16 +157,16 @@ export default function Memory() {
           <button
             onClick={quit}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl
-                       bg-slate-800 hover:bg-slate-700 border border-slate-700
-                       text-slate-400 text-sm font-medium transition-colors"
+                       bg-white hover:bg-slate-100 border border-slate-300
+                       text-slate-900 text-sm font-bold transition-colors cursor-pointer"
           >
-            <LogOut className="w-4 h-4" /> Quit
+            <LogOut className="w-4 h-4 text-slate-900" /> Quit
           </button>
           <button
             onClick={pause}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl
-                       bg-slate-800 hover:bg-slate-700 border border-slate-700
-                       text-slate-200 text-sm font-medium transition-colors"
+                       bg-slate-900 hover:bg-black text-white text-sm font-bold border border-slate-900
+                       transition-colors cursor-pointer"
           >
             <Pause className="w-4 h-4" /> Pause
           </button>
@@ -180,16 +180,16 @@ export default function Memory() {
           <button
             onClick={quit}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl
-                       bg-slate-800 hover:bg-slate-700 border border-slate-700
-                       text-slate-400 text-sm font-medium transition-colors"
+                       bg-white hover:bg-slate-100 border border-slate-300
+                       text-slate-900 text-sm font-bold transition-colors cursor-pointer"
           >
-            <LogOut className="w-4 h-4" /> Quit
+            <LogOut className="w-4 h-4 text-slate-900" /> Quit
           </button>
           <button
             onClick={resume}
             className="flex items-center gap-2 px-6 py-2.5 rounded-xl
-                       bg-white hover:bg-slate-100 text-slate-900 text-sm font-semibold
-                       transition-colors shadow"
+                       bg-slate-900 hover:bg-black text-white text-sm font-bold border border-slate-900
+                       transition-colors shadow-2xs cursor-pointer"
           >
             <Play className="w-4 h-4 fill-current" /> Resume
           </button>
@@ -208,46 +208,46 @@ export default function Memory() {
 
         {/* Title */}
         <div className="text-center">
-          <h1 className="text-2xl font-extrabold text-white">Memory Match</h1>
-          <p className="text-slate-500 text-sm mt-1">
+          <h1 className="text-2xl font-extrabold text-slate-900">Memory Match</h1>
+          <p className="text-slate-600 text-sm font-medium mt-1">
             Find all {level.pairCount} matching pairs
           </p>
         </div>
 
         {/* Level navigator */}
-        <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5">
+        <div className="flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-2.5 shadow-2xs">
           <button
             onClick={goPrev}
             disabled={isFirst}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800
-                       disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100
+                       disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
 
           <div className="text-center min-w-[130px]">
-            <p className="text-sm font-semibold text-white">
+            <p className="text-sm font-bold text-slate-900">
               Level {level.id}
               <span className="text-slate-500 font-normal ml-1">/ {memoryLevels.length}</span>
             </p>
-            <p className="text-xs text-slate-500">{level.rows}×{level.cols} · {level.pairCount} pairs</p>
+            <p className="text-xs text-slate-500 font-medium">{level.rows}×{level.cols} · {level.pairCount} pairs</p>
           </div>
 
           <button
             onClick={goNext}
             disabled={isLast || nextLocked}
             title={nextLocked ? `Complete Level ${levelIdx + 1} to unlock` : 'Next level'}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800
-                       disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100
+                       disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer"
           >
             {nextLocked
-              ? <Lock className="w-4 h-4" />
+              ? <Lock className="w-4 h-4 text-slate-400" />
               : <ChevronRight className="w-4 h-4" />}
           </button>
         </div>
 
         {/* Unlocked progress hint */}
-        <p className="text-xs text-slate-600 -mt-2">
+        <p className="text-xs text-slate-600 font-medium -mt-2">
           {maxUnlocked + 1} of {memoryLevels.length} levels unlocked
         </p>
 
@@ -265,9 +265,9 @@ export default function Memory() {
 
         {/* Progress bar */}
         <div className="w-full" style={{ maxWidth: 'max(340px, min(720px, 95vw))' }}>
-          <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+          <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-emerald-500 rounded-full transition-all duration-300"
+              className="h-full bg-slate-900 rounded-full transition-all duration-300"
               style={{ width: `${(matchedCount / level.pairCount) * 100}%` }}
             />
           </div>
@@ -295,8 +295,8 @@ export default function Memory() {
             {gameState === 'paused' && (
               <div className="absolute inset-0 flex items-center justify-center rounded-xl">
                 <div className="bg-slate-900/90 px-6 py-4 rounded-xl border border-slate-700 text-center">
-                  <p className="text-amber-400 font-bold text-lg tracking-wide">⏸ PAUSED</p>
-                  <p className="text-slate-500 text-xs mt-1">Press Resume to continue</p>
+                  <p className="text-white font-bold text-lg tracking-wide">⏸ PAUSED</p>
+                  <p className="text-slate-400 text-xs mt-1">Press Resume to continue</p>
                 </div>
               </div>
             )}
@@ -306,7 +306,7 @@ export default function Memory() {
               <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-slate-950/75">
                 <button
                   onClick={start}
-                  className="flex flex-col items-center gap-2 text-slate-300 hover:text-white transition-colors"
+                  className="flex flex-col items-center gap-2 text-slate-300 hover:text-white transition-colors cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center border border-white/20 transition-colors">
                     <Play className="w-7 h-7 fill-current ml-1" />
@@ -325,8 +325,8 @@ export default function Memory() {
         <button
           onClick={reset}
           className="flex items-center gap-2 px-5 py-2 rounded-xl
-                     bg-slate-900 hover:bg-slate-800 border border-slate-800
-                     text-slate-500 hover:text-slate-300 text-xs font-medium transition-colors"
+                     bg-white hover:bg-slate-100 border border-slate-200 shadow-2xs
+                     text-slate-700 hover:text-slate-900 text-xs font-bold transition-colors cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" /> Restart Level
         </button>

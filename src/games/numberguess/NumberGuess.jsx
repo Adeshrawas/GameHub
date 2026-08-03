@@ -32,14 +32,14 @@ export default function NumberGuess() {
         
         {/* Title Banner */}
         <div className="text-center space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-1">
-            <Target className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-semibold uppercase tracking-wider mb-1">
+            <Target className="w-3.5 h-3.5 text-slate-900" />
             Logic & Deduction
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900">
             Number Guessing
           </h1>
-          <p className="text-sm sm:text-base text-slate-400">
+          <p className="text-sm sm:text-base text-slate-600 font-medium">
             Guess the secret number between <strong>{range.min}</strong> and <strong>{range.max}</strong> in as few attempts as possible!
           </p>
         </div>
@@ -53,16 +53,16 @@ export default function NumberGuess() {
           />
 
           {/* Best Score Bar */}
-          <div className="max-w-md mx-auto flex items-center justify-between px-4 py-2 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
+          <div className="max-w-md mx-auto flex items-center justify-between px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 shadow-2xs">
             <div className="flex items-center space-x-2">
-              <Trophy className="w-4 h-4 text-purple-400" />
-              <span>Fewest Guesses ({difficulty.toUpperCase()}): <strong className="text-purple-300">{bestScore !== null ? `${bestScore} attempts` : 'None yet'}</strong></span>
+              <Trophy className="w-4 h-4 text-slate-900" />
+              <span>Fewest Guesses ({difficulty.toUpperCase()}): <strong className="text-slate-900">{bestScore !== null ? `${bestScore} attempts` : 'None yet'}</strong></span>
             </div>
 
             {bestScore !== null && (
               <button
                 onClick={resetBestScore}
-                className="flex items-center space-x-1 text-slate-500 hover:text-rose-400 transition-colors text-xs font-medium cursor-pointer"
+                className="flex items-center space-x-1 text-slate-600 hover:text-slate-900 transition-colors text-xs font-bold cursor-pointer"
                 title="Reset best score for this difficulty"
               >
                 <RefreshCw className="w-3 h-3" />
@@ -73,7 +73,7 @@ export default function NumberGuess() {
         </div>
 
         {/* Game Arena */}
-        <div className="w-full max-w-xl glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl shadow-2xl space-y-6">
+        <div className="w-full max-w-xl p-6 sm:p-8 rounded-3xl border border-slate-200 bg-white shadow-sm space-y-6">
           {!isWon && (
             <div className="space-y-4">
               <GuessInput
@@ -89,7 +89,7 @@ export default function NumberGuess() {
               <div className="flex justify-end">
                 <button
                   onClick={startNewGame}
-                  className="flex items-center gap-1.5 text-slate-400 hover:text-indigo-400 transition-colors text-xs font-medium cursor-pointer"
+                  className="flex items-center gap-1.5 text-slate-600 hover:text-slate-900 transition-colors text-xs font-bold cursor-pointer"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>New Game (Reroll Number)</span>
@@ -108,7 +108,7 @@ export default function NumberGuess() {
         </div>
 
         {/* Footer Rules */}
-        <div className="w-full max-w-2xl pt-4 border-t border-slate-800/60 flex items-center justify-center gap-2 text-xs text-slate-400">
+        <div className="w-full max-w-2xl pt-4 border-t border-slate-200 flex items-center justify-center gap-2 text-xs text-slate-600">
           <HelpCircle className="w-4 h-4 text-slate-500" />
           <span>Tip: Use binary search strategy (guess middle numbers) to find the target in minimum steps!</span>
         </div>
