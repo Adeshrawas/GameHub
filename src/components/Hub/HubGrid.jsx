@@ -86,8 +86,8 @@ export default function HubGrid() {
             </h1>
 
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 font-medium">
-              Play 15 classic arcade, puzzle, strategy, and reaction games instantly in your browser.
-              No sign-ups required. All high scores save automatically in LocalStorage!
+              Play 15 classic arcade, puzzle, strategy, and reaction games instantly in your browser —
+              no installs, no sign-ups. High scores are saved automatically!
             </p>
 
             <div className="flex flex-wrap gap-6 text-sm text-slate-600 pt-4 border-t border-slate-200">
@@ -162,7 +162,11 @@ export default function HubGrid() {
             <Gamepad2 className="w-4 h-4 text-slate-900" />
             <span className="text-slate-900 font-bold tracking-wider uppercase">GameHub Arcade Portal</span>
           </div>
-          <span>Scores &amp; progress saved locally in browser LocalStorage</span>
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-center">
+            <span>Scores &amp; progress saved locally in browser LocalStorage</span>
+            <span className="hidden sm:inline text-slate-300">·</span>
+            <span>&copy; {new Date().getFullYear()} GameHub. All rights reserved.</span>
+          </div>
         </div>
       </footer>
     </div>
